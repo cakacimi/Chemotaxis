@@ -1,7 +1,23 @@
+import processing.core.*; 
+import processing.data.*; 
+import processing.event.*; 
+import processing.opengl.*; 
+
+import java.util.HashMap; 
+import java.util.ArrayList; 
+import java.io.File; 
+import java.io.BufferedReader; 
+import java.io.PrintWriter; 
+import java.io.InputStream; 
+import java.io.OutputStream; 
+import java.io.IOException; 
+
+public class Chemotaxis extends PApplet {
+
 bacteria [] colony;
 int z= 50;
 int y=50;
-void setup()
+public void setup()
 {
   size(500,400);
   colony= new bacteria[15];
@@ -12,7 +28,7 @@ void setup()
   }  
 }
 
-void draw()
+public void draw()
 {
   background(100);
   for (int i=0; i< colony.length; i++)
@@ -31,7 +47,7 @@ void draw()
         yPos=250;
        }
   
- void move()
+ public void move()
    {
     if ( mouseX < xPos)
       {
@@ -58,7 +74,7 @@ void draw()
     yPos = yPos + (int)(Math.random()*3)-1;
    }
 
- void show()
+ public void show()
    {
      textSize(30);
      fill(255);
@@ -97,3 +113,12 @@ void draw()
    }  
   
   }
+  static public void main(String[] passedArgs) {
+    String[] appletArgs = new String[] { "Chemotaxis" };
+    if (passedArgs != null) {
+      PApplet.main(concat(appletArgs, passedArgs));
+    } else {
+      PApplet.main(appletArgs);
+    }
+  }
+}
