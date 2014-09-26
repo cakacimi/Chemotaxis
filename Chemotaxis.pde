@@ -60,9 +60,6 @@ void draw()
 
  void show()
    {
-     textSize(30);
-     fill(255);
-     text("I got my eye on you",100,100);
      noStroke();
  //red circle//
   fill(255,255,230);
